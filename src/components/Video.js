@@ -1,9 +1,14 @@
+import "./Video.css";
+
 function Video() {
-  return <div>Video</div>;
+  let topic = "React JS";
+  let bg = "dark";
+  return (
+    <>
+      <img src="https://loremflickr.com/140/160" alt="Background img" />
+      <div className={bg}>{topic} Tutorial - Components</div>
+    </>
+  );
 }
 
-function Thumb() {
-  return <div>Thumb</div>;
-}
-
-export { Video, Thumb };
+export default Video;
