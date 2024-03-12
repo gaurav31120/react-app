@@ -1,15 +1,13 @@
-import Video from './components/Video';
+import { Video, Thumb } from "./components/Video";
 
 function App() {
-  return  (
+  return (
     <div>
-  <div>Hello</div>
-  <Video></Video>
-  </div>
-  )
-
+      <div>Hello</div>
+      <Video></Video>
+      <Thumb></Thumb>
+    </div>
+  );
 }
-
-
 
 export default App;
