@@ -1,14 +1,19 @@
 import "./Video.css";
 
-function Video() {
-  let topic = "React JS";
+function Video(props) {
+  console.log("v", Video);
+
   let bg = "dark";
   return (
     <>
-      <img src="https://loremflickr.com/140/160" alt="Background img" />
-      <div className={bg}>{topic} Tutorial - Components</div>
+      <div>
+        <img src="https://loremflickr.com/140/160" alt="Background img" />
+      </div>
+      <div className={bg} style={{ backgroundColor: "" }}>
+        {props.title}
+        {/* props.title is written for calling title props. */}
+      </div>
     </>
   );
 }
-
 export default Video;
