@@ -5,11 +5,11 @@
 .container {
   width: 15em;
   margin: 0 0.2em;
-  float:left;
+  float: left;
+  background-color: green;
 }
 .pic img {
   width: 100%;
-
 }
 .title {
   font-weight: bold;

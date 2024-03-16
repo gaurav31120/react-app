@@ -11,8 +11,14 @@ function App() {
         channel="Coder Dost"
       ></Video>
       <Video
-        title="Node Js tutoriail"
+        title="Node Js tutorial"
         views="100k"
+        time="2 years ago"
+        // channel="Coder Masti"
+      ></Video>
+      <Video
+        title="MongoDB tutorial"
+        views="1m"
         time="2 years ago"
         channel="Coder Masti"
       ></Video>

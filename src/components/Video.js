@@ -1,7 +1,8 @@
 import "./Video.css";
 
 // function Video(props)
-function Video({ title, channel, views, time }) {
+function Video({ title, channel = "gaurav", views, time }) {
+  // Here, we set a default value channel="gaurav". gaurav is default value.
   console.log("v", Video);
 
   return (
