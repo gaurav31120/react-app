@@ -1,6 +1,6 @@
 import "./Video.css";
 // function Video(props)
-function Video({ title, channel = "gaurav", views, time, verified }) {
+function Video({ id, title, channel = "gaurav", views, time, verified }) {
   // Here, we set a default value channel="gaurav". gaurav is default value.
   // let verified = true;
 
@@ -12,12 +12,15 @@ function Video({ title, channel = "gaurav", views, time, verified }) {
   //   channelJSX =  <div className="channel">{channel} </div>
   // }
 
-  console.log("v", Video);
+  // console.log("v", Video);
   return (
     <>
       <div className="container">
         <div className="pic">
-          <img src="https://picsum.photos/id/2/160/90" alt="Background img" />
+          <img
+            src={`https://picsum.photos/id/${id}/160/90`}
+            alt="Background img"
+          />
         </div>
         <div className="title">{title}</div>
 

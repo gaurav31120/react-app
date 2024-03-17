@@ -1,41 +1,48 @@
 import Video from "./components/Video";
 import "./App.css";
 function App() {
-  let obj = {
-    title: "Python JS tutorial",
-    views: "10k",
-    time: "1 year ago",
-
-    channel: "Coder Dost",
-    verified: true,
-  };
+  let videos = [
+    {
+      id: 1,
+      title: "Python JS tutorial",
+      views: "10k",
+      time: "1 year ago",
+      channel: "Coder Dost",
+      verified: true,
+    },
+    {
+      id: 2,
+      title: "React JS tutorial",
+      views: "100k",
+      time: "1 year ago",
+      channel: "gaurav",
+      verified: false,
+    },
+    {
+      id: 3,
+      title: "Node Js tutoriail",
+      views: "1M",
+      time: "2 years ago",
+      channel: "Coder Dost",
+      verified: true,
+    },
+  ];
   return (
     <>
       <div className="App">
         <div>Videos</div>
-        <Video {...obj}></Video>
-        {/* here, for calling object(name obj) we used {...obj} spread operator. */}
+        {videos.map((video) => (
+          <Video
+            key={video.id}
+            title={video.title}
+            views={video.views}
+            time={video.time}
+            channel={video.channel}
+            verified={video.verified}
+            id={video.id}
+          ></Video>
+        ))}
 
-        <Video
-          verified={false}
-          title="React JS tutorial"
-          views="10k"
-          time="1 year ago"
-          channel="Coder Dost"
-        ></Video>
-        <Video
-          verified={false}
-          title="Node Js tutoriail"
-          views="100k"
-          time="2 years ago"
-        ></Video>
-        <Video
-          verified={true}
-          title="Mongo Js tutoriail"
-          views="1000k"
-          time="3 years ago"
-          channel="Coder Masti"
-        ></Video>
         {/* Here, we have send title props to Video component. */}
       </div>
     </>
