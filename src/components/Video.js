@@ -1,6 +1,14 @@
 import "./Video.css";
 // function Video(props)
-function Video({ id, title, channel = "gaurav", views, time, verified }) {
+function Video({
+  id,
+  title,
+  channel = "gaurav",
+  views,
+  time,
+  verified,
+  children,
+}) {
   // Here, we set a default value channel="gaurav". gaurav is default value.
   // let verified = true;
 
@@ -31,6 +39,7 @@ function Video({ id, title, channel = "gaurav", views, time, verified }) {
         <div className="views">
           {views} <span>.</span> {time}
         </div>
+        <div>{children}</div>
       </div>
     </>
   );
