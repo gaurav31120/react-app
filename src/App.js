@@ -1,10 +1,11 @@
-import Video from "./components/Video";
+// import Video from "./components/Video";
 import "./App.css";
 import videoDB from "./data/data";
-import PlayButton from "./components/PlayButton";
+// import PlayButton from "./components/PlayButton";
 // import Counter from "./components/Counter";
 import { useState } from "react";
 import AddVideo from "./components/AddVideo";
+import VideoList from "./components/VideoList";
 function App() {
   const [videos, setVideos] = useState(videoDB);
 
@@ -30,6 +31,7 @@ function App() {
         // To stop this we will use Event Propogation
       >
         <AddVideo addVideos={addVideos}></AddVideo>
+        <VideoList videos={videos}></VideoList>
         {/* <button
             onClick={() => {
               setVideos([
@@ -48,24 +50,6 @@ function App() {
             Add Video
           </button> */}
 
-        {videos.map((video) => (
-          <Video
-            verified={true}
-            key={video.id}
-            id={video.id}
-            title={video.title}
-            views={video.views}
-            time={video.time}
-            channel={video.channel}
-          >
-            <PlayButton
-              onPlay={() => console.log("Playing..", video.title)}
-              onPause={() => console.log("Paused..", video.title)}
-            >
-              {video.title}
-            </PlayButton>
-          </Video>
-        ))}
         {/* <Video {...videos}></Video> */}
         {/* here, for calling object(name obj) we used {...obj} spread operator. */}
         {/* <Video  verified={false}title="React JS tutorial" views="10k" time="1 year ago" channel="Coder Dost"></Video>
