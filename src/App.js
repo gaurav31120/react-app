@@ -8,6 +8,7 @@ import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 function App() {
   const [videos, setVideos] = useState(videoDB);
+  const [editableVideo, setEditableVideo] = useState(null);
 
   function addVideos(video) {
     setVideos([
@@ -28,6 +29,16 @@ function App() {
     setVideos(videos.filter((video) => video.id !== id));
     console.log(id);
   }
+  function editVideo(id) {
+    setEditableVideo(videos.find((video) => video.id === id));
+  }
+  function updateVideo(video) {
+    const index = videos.findIndex((v) => v.id === video.id);
+    const newVideos = [...videos];
+    newVideos.splice(index, 1, video);
+    setVideos(newVideos);
+    console.log(newVideos);
+  }
   return (
     <>
       <div
@@ -35,8 +46,16 @@ function App() {
         onClick={() => console.log("App")} //In console this line will get printed whenever any below div class will be called. It will act like parent console which will be called on every click anywhere.. in this page.
         // To stop this we will use Event Propogation
       >
-        <AddVideo addVideos={addVideos}></AddVideo>
-        <VideoList deleteVideo={deleteVideo} videos={videos}></VideoList>
+        <AddVideo
+          addVideos={addVideos}
+          updateVideo={updateVideo}
+          editableVideo={editableVideo}
+        ></AddVideo>
+        <VideoList
+          deleteVideo={deleteVideo}
+          editVideo={editVideo}
+          videos={videos}
+        ></VideoList>
         {/* <button
             onClick={() => {
               setVideos([

@@ -9,6 +9,7 @@ function Video({
   verified,
   children,
   deleteVideo,
+  editVideo,
 }) {
   // Here, we set a default value channel="gaurav". gaurav is default value.
   // let verified = true;
@@ -33,6 +34,12 @@ function Video({
         >
           X
         </button>
+        <button
+          className="edit"
+          onClick={() => {
+            editVideo(id);
+          }}
+        >Edit</button>
         <div className="pic">
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
