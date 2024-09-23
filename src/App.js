@@ -23,6 +23,11 @@ function App() {
       // },
     ]);
   }
+
+  function deleteVideo(id) {
+    setVideos(videos.filter((video) => video.id !== id));
+    console.log(id);
+  }
   return (
     <>
       <div
@@ -31,7 +36,7 @@ function App() {
         // To stop this we will use Event Propogation
       >
         <AddVideo addVideos={addVideos}></AddVideo>
-        <VideoList videos={videos}></VideoList>
+        <VideoList deleteVideo={deleteVideo} videos={videos}></VideoList>
         {/* <button
             onClick={() => {
               setVideos([

@@ -8,6 +8,7 @@ function Video({
   time,
   verified,
   children,
+  deleteVideo,
 }) {
   // Here, we set a default value channel="gaurav". gaurav is default value.
   // let verified = true;
@@ -24,6 +25,14 @@ function Video({
   return (
     <>
       <div className="container">
+        <button
+          className="close"
+          onClick={() => {
+            deleteVideo(id);
+          }}
+        >
+          X
+        </button>
         <div className="pic">
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
