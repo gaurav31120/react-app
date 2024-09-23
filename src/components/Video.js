@@ -37,7 +37,7 @@ function Video({
         </div>
         {/* {channelJSX} */}
         <div className="views">
-          {views} <span>.</span> {time}
+          {views} <span>views.</span> {time}
         </div>
         <div>{children}</div>
       </div>
