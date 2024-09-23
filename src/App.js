@@ -1,8 +1,11 @@
 import Video from "./components/Video";
 import "./App.css";
-import videos from "./data/data";
+import videoDB from "./data/data";
 import PlayButton from "./components/PlayButton";
+import Counter from "./components/Counter";
+import { useState } from "react";
 function App() {
+  const [videos, setVideos] = useState(videoDB);
   return (
     <>
       <div
@@ -10,7 +13,25 @@ function App() {
         onClick={() => console.log("App")} //In console this line will get printed whenever any below div class will be called. It will act like parent console which will be called on every click anywhere.. in this page.
         // To stop this we will use Event Propogation
       >
-        <div>Videos</div>
+        <div>
+          <button
+            onClick={() => {
+              setVideos([
+                ...videos,
+                {
+                  id: videos.length + 1,
+                  title: "Demo Js tutoriail",
+                  views: "2M",
+                  time: "3 years ago",
+                  channel: "Coder Dost",
+                  verified: true,
+                },
+              ]);
+            }}
+          >
+            Add Video
+          </button>
+        </div>
         {videos.map((video) => (
           <Video
             verified={true}
@@ -41,6 +62,7 @@ function App() {
           {/* <PlayButton  message="pause-message" onClick={()=>alert('Pauseeeee')}>Pause</PlayButton> */}
           {/* This onClick is not using to click the buttons but this onClick only heps to pass the function. */}
         </div>
+        <Counter></Counter>
       </div>
     </>
   );
