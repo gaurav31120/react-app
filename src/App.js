@@ -27,31 +27,10 @@ function App() {
   const [videos, dispatch] = useReducer(videoReducer, videoDB);
   // const [videos, setVideos] = useState(videoDB);
 
-  function addVideos(video) {
-    dispatch({ type: "ADD", payload: video });
-    // action : {type:'ADD',payload:video}
-    // setVideos([
-    //   ...videos,
-    //   { ...video, id: videos.length + 1 },
-    // ]);
-  }
-
-  function deleteVideo(id) {
-    dispatch({ type: "DELETE", payload: id });
-    // setVideos(videos.filter((video) => video.id !== id));
-    console.log(id);
-  }
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
   }
-  function updateVideo(video) {
-    dispatch({ type: "UPDATE", payload: video });
-    // const index = videos.findIndex((v) => v.id === video.id);
-    // const newVideos = [...videos];
-    // newVideos.splice(index, 1, video);
-    // setVideos(newVideos);
-    // console.log(newVideos);
-  }
+
   return (
     <>
       <div
@@ -59,13 +38,9 @@ function App() {
         onClick={() => console.log("App")} //In console this line will get printed whenever any below div class will be called. It will act like parent console which will be called on every click anywhere.. in this page.
         // To stop this we will use Event Propogation
       >
-        <AddVideo
-          addVideos={addVideos}
-          updateVideo={updateVideo}
-          editableVideo={editableVideo}
-        ></AddVideo>
+        <AddVideo dispatch={dispatch} editableVideo={editableVideo}></AddVideo>
         <VideoList
-          deleteVideo={deleteVideo}
+          dispatch={dispatch}
           editVideo={editVideo}
           videos={videos}
         ></VideoList>
@@ -87,19 +62,7 @@ function App() {
             Add Video
           </button> */}
 
-        {/* <Video {...videos}></Video> */}
-        {/* here, for calling object(name obj) we used {...obj} spread operator. */}
-        {/* <Video  verified={false}title="React JS tutorial" views="10k" time="1 year ago" channel="Coder Dost"></Video>
-      <Video  verified={false}title="Node Js tutoriail" views="100k" time="2 years ago" ></Video> */}
-        {/* <Video  verified={true}title="Mongo Js tutoriail" views="1000k" time="3 years ago" channel="Coder Masti"></Video>  */}
-        {/*  Here, we have send title props to Video component. */}
-
-        {/* <div style={{ clear: "both" }}> */}
-        {/* <PlayButton message="play-message" onPlay={()=>console.log('Playy')} onPause ={()=>console.log('Pause')}>Play</PlayButton> */}
-        {/* <PlayButton  message="pause-message" onClick={()=>alert('Pauseeeee')}>Pause</PlayButton> */}
-        {/* This onClick is not using to click the buttons but this onClick only heps to pass the function. */}
-        {/* </div> */}
-        {/* <Counter></Counter> */}
+       
       </div>
     </>
   );

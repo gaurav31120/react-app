@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./AddVideo.css";
 
-function AddVideo({ addVideos,updateVideo, editableVideo }) {
+function AddVideo({ dispatch, editableVideo }) {
   const initialState = {
     time: "3 years ago",
     channel: "Coder Dost",
@@ -13,9 +13,9 @@ function AddVideo({ addVideos,updateVideo, editableVideo }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (editableVideo) {
-        updateVideo(video)
+      dispatch({ type: "UPDATE", payload: video });
     } else {
-      addVideos(video);
+      dispatch({ type: "ADD", payload: video });
     }
 
     setVideo(initialState);

@@ -8,8 +8,8 @@ function Video({
   time,
   verified,
   children,
-  deleteVideo,
   editVideo,
+  dispatch,
 }) {
   // Here, we set a default value channel="gaurav". gaurav is default value.
   // let verified = true;
@@ -29,7 +29,7 @@ function Video({
         <button
           className="close"
           onClick={() => {
-            deleteVideo(id);
+            dispatch({ type: "DELETE", payload: id });
           }}
         >
           X
