@@ -1,5 +1,5 @@
 .dark {
-  background-color: green;
+  background-color: gray;
   color: white;
 }
 .container {
@@ -8,6 +8,12 @@
   float: left;
   background-color: gray;
   position: relative;
+}
+.container.darkMode{
+  color:white;
+}
+.container.lightMode{
+  color:black;
 }
 .pic img {
   width: 100%;

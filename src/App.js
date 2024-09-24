@@ -3,11 +3,13 @@ import "./App.css";
 import videoDB from "./data/data";
 // import PlayButton from "./components/PlayButton";
 // import Counter from "./components/Counter";
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
+import ThemeContext from "./context/ThemeContext";
 function App() {
   const [editableVideo, setEditableVideo] = useState(null);
+  const [mode, setMode] = useState("darkMode");
   function videoReducer(videos, action) {
     switch (action.type) {
       case "ADD":
@@ -25,7 +27,8 @@ function App() {
     }
   }
   const [videos, dispatch] = useReducer(videoReducer, videoDB);
-  // const [videos, setVideos] = useState(videoDB);
+
+  // const themeContext = useContext(ThemeContext);
 
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
@@ -33,37 +36,24 @@ function App() {
 
   return (
     <>
-      <div
-        className="App"
-        onClick={() => console.log("App")} //In console this line will get printed whenever any below div class will be called. It will act like parent console which will be called on every click anywhere.. in this page.
-        // To stop this we will use Event Propogation
-      >
-        <AddVideo dispatch={dispatch} editableVideo={editableVideo}></AddVideo>
-        <VideoList
-          dispatch={dispatch}
-          editVideo={editVideo}
-          videos={videos}
-        ></VideoList>
-        {/* <button
+      <ThemeContext.Provider value={mode}>
+        <div className={`App ${mode}`} onClick={() => console.log("App")}>
+          <button
             onClick={() => {
-              setVideos([
-                ...videos,
-                {
-                  id: videos.length + 1,
-                  title: "Demo Js tutoriail",
-                  views: "2M",
-                  time: "3 years ago",
-                  channel: "Coder Dost",
-                  verified: true,
-                },
-              ]);
+              setMode(mode === "darkMode" ? "lightMode" : "darkMode");
             }}
-          >
-            Add Video
-          </button> */}
-
-       
-      </div>
+          ></button>
+          <AddVideo
+            dispatch={dispatch}
+            editableVideo={editableVideo}
+          ></AddVideo>
+          <VideoList
+            dispatch={dispatch}
+            editVideo={editVideo}
+            videos={videos}
+          ></VideoList>
+        </div>
+      </ThemeContext.Provider>
     </>
   );
 }

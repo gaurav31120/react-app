@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./Video.css";
+import ThemeContext from "../context/ThemeContext";
 // function Video(props)
 function Video({
   id,
@@ -11,21 +13,10 @@ function Video({
   editVideo,
   dispatch,
 }) {
-  // Here, we set a default value channel="gaurav". gaurav is default value.
-  // let verified = true;
-
-  // let channelJSX;
-  // if(verified){
-  //   channelJSX =  <div className="channel">{channel} ✅</div>
-  // }
-  // else {
-  //   channelJSX =  <div className="channel">{channel} </div>
-  // }
-
-  // console.log("v", Video);
+  const theme = useContext(ThemeContext)
   return (
     <>
-      <div className="container">
+      <div className={`container ${theme}`}>
         <button
           className="close"
           onClick={() => {
