@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./Video.css";
 import ThemeContext from "../context/ThemeContext";
+import VideoDispatchContext from "../context/VideoDispatchContext";
 // function Video(props)
 function Video({
   id,
@@ -11,9 +12,9 @@ function Video({
   verified,
   children,
   editVideo,
-  dispatch,
 }) {
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
+  const dispatch = useContext(VideoDispatchContext);
   return (
     <>
       <div className={`container ${theme}`}>
@@ -30,7 +31,9 @@ function Video({
           onClick={() => {
             editVideo(id);
           }}
-        >Edit</button>
+        >
+          Edit
+        </button>
         <div className="pic">
           <img
             src={`https://picsum.photos/id/${id}/160/90`}

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./AddVideo.css";
+import VideoDispatchContext from "../context/VideoDispatchContext";
 
-function AddVideo({ dispatch, editableVideo }) {
+function AddVideo({  editableVideo }) {
   const initialState = {
     time: "3 years ago",
     channel: "Coder Dost",
@@ -10,6 +11,7 @@ function AddVideo({ dispatch, editableVideo }) {
     views: "",
   };
   const [video, setVideo] = useState(initialState);
+  const dispatch = useContext(VideoDispatchContext)
   function handleSubmit(e) {
     e.preventDefault();
     if (editableVideo) {
