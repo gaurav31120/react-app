@@ -1,12 +1,4 @@
-import { useMemo, useRef, useState } from "react";
-
-function fib(n) {
-  //1,2,3,4,5
-  if (n === 1 || n === 2) {
-    return 1;
-  }
-  return fib(n - 1) + fib(n - 2);
-}
+import { useCallback, useMemo, useRef, useState } from "react";
 
 function Counter() {
   console.log("render counter");
@@ -23,7 +15,15 @@ function Counter() {
     console.log(num.current);
   }
 
-  const fibMemoized = useMemo(() => fib(number), [number]);
+  const fibFx = useCallback(function fib(n) {
+    //1,2,3,4,5
+    if (n === 1 || n === 2) {
+      return 1;
+    }
+    return fib(n - 1) + fib(n - 2);
+  },[]);
+
+  const fibMemoized = useMemo(() => fibFx(number), [number, fibFx]);
 
   return (
     <>

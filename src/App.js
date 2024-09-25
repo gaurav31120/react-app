@@ -3,7 +3,7 @@ import "./App.css";
 import videoDB from "./data/data";
 // import PlayButton from "./components/PlayButton";
 // import Counter from "./components/Counter";
-import { useReducer, useState } from "react";
+import { useCallback, useReducer, useState } from "react";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/ThemeContext";
@@ -35,10 +35,11 @@ function App() {
   const [videos, dispatch] = useReducer(videoReducer, []);
 
   // const themeContext = useContext(ThemeContext);
-
-  function editVideo(id) {
+  
+  const editVideo = useCallback(function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
-  }
+  },[videos])
+  
 
   return (
     <>

@@ -17,7 +17,7 @@
 5. memoization ---- memoization hota hai caching ---- agar bahut heavy calculation kar rahe ho 
 to us result ko store kar lo aur us result ko use kar lo naki bar bar calculation karte rahe.
 
-
+6. useCallback() ---- function ko memoize karna hai to 
 
 
 
