@@ -1,0 +1,21 @@
+1.use effect hamesha rendering ke bbat chalta hai
+
+2. mounting ---- first tome rendering
+
+3. useEffect(() => {
+    console.log('video playing',id)
+  },[])
+
+ use effect me blank array ka matlab hai ki first time render me chalega phir kabie nhi chalega (no dependency).
+
+4. useEffect(() => {
+    console.log('video playing',id)
+  },[id])
+
+  here, id is dependency args which is changeable. jab bhi id change hoga to ye use call ho jayega.
+
+
+
+
+
+

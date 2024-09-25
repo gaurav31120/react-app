@@ -35,14 +35,14 @@ function AddVideo({  editableVideo }) {
     if (editableVideo) {
       setVideo(editableVideo);
     }
-    inputRef.current.placeholder =""
-    // inputRef.current.focus()
-    "type here".split('').forEach((char,i) => {
-      setTimeout(() => {
-        console.log(char)
-        inputRef.current.placeholder = inputRef.current.placeholder + char
-      },200*i)
-    })
+    inputRef.current.focus()
+    // inputRef.current.placeholder =""
+    // "type here".split('').forEach((char,i) => {
+    //   setTimeout(() => {
+    //     console.log(char)
+    //     inputRef.current.placeholder = inputRef.current.placeholder + char
+    //   },200*i)
+    // })
     console.log("effect");
   }, [editableVideo]);
   return (
