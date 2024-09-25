@@ -16,15 +16,16 @@ function Video({
   const theme = useContext(ThemeContext);
   const dispatch = useVideoDispatch();
 
+
   //cleanup function
-  useEffect(() => {
-    const idx = setInterval(() => {
-      console.log("video playing", id);
-    }, 3000);
-    return () => {
-      clearInterval(idx);
-    };
-  }, [id]);
+  // useEffect(() => {
+  //   const idx = setInterval(() => {
+  //     console.log("video playing", id);
+  //   }, 3000);
+  //   return () => {
+  //     clearInterval(idx);
+  //   };
+  // }, [id]);
   return (
     <>
       <div className={`container ${theme}`}>

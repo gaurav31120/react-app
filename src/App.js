@@ -3,16 +3,17 @@ import "./App.css";
 import videoDB from "./data/data";
 // import PlayButton from "./components/PlayButton";
 // import Counter from "./components/Counter";
-import {  useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/ThemeContext";
 import VideosContext from "./context/VideosContext";
 import VideoDispatchContext from "./context/VideoDispatchContext";
-import Counter from "./components/Counter"
+import Counter from "./components/Counter";
 function App() {
   const [editableVideo, setEditableVideo] = useState(null);
   const [mode, setMode] = useState("darkMode");
+
   function videoReducer(videos, action) {
     switch (action.type) {
       case "ADD":
