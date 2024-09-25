@@ -14,6 +14,8 @@
 
   here, id is dependency args which is changeable. jab bhi id change hoga to ye use call ho jayega.
 
+5. memoization ---- memoization hota hai caching ---- agar bahut heavy calculation kar rahe ho 
+to us result ko store kar lo aur us result ko use kar lo naki bar bar calculation karte rahe.
 
 
 
