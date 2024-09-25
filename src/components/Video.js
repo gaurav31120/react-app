@@ -14,11 +14,17 @@ function Video({
   editVideo,
 }) {
   const theme = useContext(ThemeContext);
-  const dispatch = useVideoDispatch()
+  const dispatch = useVideoDispatch();
 
+  //cleanup function
   useEffect(() => {
-    console.log('video playing',id)
-  },[id])
+    const idx = setInterval(() => {
+      console.log("video playing", id);
+    }, 3000);
+    return () => {
+      clearInterval(idx);
+    };
+  }, [id]);
   return (
     <>
       <div className={`container ${theme}`}>
