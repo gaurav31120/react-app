@@ -16,6 +16,8 @@ function App() {
 
   function videoReducer(videos, action) {
     switch (action.type) {
+      case "LOAD":
+        return action.payload;
       case "ADD":
         return [...videos, { ...action.payload, id: videos.length + 1 }];
       case "DELETE":
@@ -30,7 +32,7 @@ function App() {
         return videos;
     }
   }
-  const [videos, dispatch] = useReducer(videoReducer, videoDB);
+  const [videos, dispatch] = useReducer(videoReducer, []);
 
   // const themeContext = useContext(ThemeContext);
 

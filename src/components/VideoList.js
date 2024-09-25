@@ -3,22 +3,29 @@ import PlayButton from "./PlayButton";
 import useVideos from "../hooks/Videos";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useVideoDispatch from "../hooks/VideoDispatch";
 
 function VideoList({ editVideo }) {
   const url = "https://my.api.mockaroo.com/video.json?key=3d850c00";
 
-  // const videos = useVideos();
-  const [videos, setVideos] = useState([]);
+  const videos = useVideos();
+  // const [videos, setVideos] = useState([]);
+  const dispatch = useVideoDispatch();
 
-  async function handleClick() {
+  async function handleClick (){
     const res = await axios.get(url);
-    console.log("get videos", res.data);
-    setVideos(res.data);
-  }
+    console.log('getVideos', res.data)
+    dispatch({type:'LOAD',payload:res.data})
+   }
 
   useEffect(() => {
-    handleClick();
-  }, []);
+    async function getVideos() {
+      const res = await axios.get(url);
+      console.log("get videos", res.data);
+      dispatch({ type: "LOAD", payload: res.data });
+    }
+    getVideos();
+  }, [dispatch]);
 
   return (
     <>
