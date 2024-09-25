@@ -2,7 +2,7 @@ import Video from "./Video";
 import PlayButton from "./PlayButton";
 import useVideos from "../hooks/Videos";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function VideoList({ editVideo }) {
   const url = "https://my.api.mockaroo.com/video.json?key=3d850c00";
@@ -15,6 +15,11 @@ function VideoList({ editVideo }) {
     console.log("get videos", res.data);
     setVideos(res.data);
   }
+
+  useEffect(() => {
+    handleClick();
+  }, []);
+
   return (
     <>
       {videos.map((video) => (
